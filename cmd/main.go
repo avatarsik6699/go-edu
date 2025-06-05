@@ -1,11 +1,32 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
 
-func DomainHelloWorld(val string) string {
-	return fmt.Sprintf("Hello, %s", val)
+	"github.com/v.godlevskiy/tdd-app/internal/countdown"
+)
+
+const (
+	englishHelloPrefix = "Hello"
+	spanishHelloPrefix = "Hola"
+)
+
+func DomainHelloWorld(val string, lng string) string {
+	prefix := englishHelloPrefix
+
+	if val == "" {
+		val = "World"
+	}
+
+	if lng == "Spanish" {
+		prefix = spanishHelloPrefix
+	}
+
+	return fmt.Sprintf("%s, %s", prefix, val)
 }
 
 func main() {
-	fmt.Println(DomainHelloWorld("world"))
+	countdown.CountDown(os.Stdout, &countdown.DefaultSleeper{})
+	// fmt.Println(DomainHelloWorld("world", "Spanish"))
 }
