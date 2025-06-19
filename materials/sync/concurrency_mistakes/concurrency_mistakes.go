@@ -1,9 +1,5 @@
 package main
 
-import (
-	"github.com/v.godlevskiy/tdd-app/internal/sync/ctx"
-)
-
 /*
 	DATA RACE - несинхр. обращение неск. потоков к одному и тому же участку памяти, где
 	как минимум 1 поток осуществляет запись. В такий ситуации нужна синхронизация.
@@ -47,5 +43,4 @@ import (
 */
 
 func main() {
-	ctx.Sample()
 }
